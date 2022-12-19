@@ -75,7 +75,7 @@ function displayLibrary() {
 }
 
 //Start event listener  for clear form button 
-const clearButton = document.getElementById(".reset-btn");
+const clearButton = document.querySelector(".reset-btn");
 clearButton.addEventListener("click", clearForm);
 
 function clearForm() {
