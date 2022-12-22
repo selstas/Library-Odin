@@ -30,7 +30,7 @@ function displayLibrary() {
   } 
  // loop over the array and diplay it in a card
   let index = 0;
-  myLibrary.forEach(myLibrary => {
+  myLibrary.forEach((myLibrarys) => {
     const card = document.createElement("div");
     card.classList.add("card");
     books.appendChild(card);
@@ -57,10 +57,10 @@ function displayLibrary() {
           displayLibrary();
         }
 
-    for(let key in myLibrary) {
-      console.log(`${key}: ${myLibrary[key]}`);
+    for(let key in myLibrarys) {
+      console.log(`${key}: ${myLibrarys[key]}`);
       const para = document.createElement("p");
-      para.textContent = (`${key}: ${myLibrary[key]}`);
+      para.textContent = (`${key}: ${myLibrarys[key]}`);
       card.appendChild(para);
       }
   })
