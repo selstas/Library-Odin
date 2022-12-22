@@ -19,19 +19,22 @@
             </div>
             <div class="form">
                 <button  class="add-book-btn">Add New Book</button>
-                <div id="add-book-form" style="display:none">
-                <form id="add-book">
-                    <label for="Title">Title:</label>
-                    <input type="text" id="Title" name="Title">
-                    <label for="Author">Author:</label>
-                    <input type="text" id="Author" name="Author">
-                    <label for="Pages">Pages:</label>
-                    <input type="text" id="Pages" name="Pages">
-                    <label for="Read">Read:</label>
-                    <input type="text" id="Read" name="Read">
-                </form>
-                <button type="submit" class="submit-btn">Submit to Library</button>
-                <button type="reset" class="reset-btn">Reset Form</button>
+                    <div id="add-book-form" style="display:none">
+                    <form id="add-book">
+                        <label for="Title">Title:</label>
+                        <input type="text" id="Title" name="Title">
+                        <label for="Author">Author:</label>
+                        <input type="text" id="Author" name="Author">
+                        <label for="Pages">Pages:</label>
+                        <input type="text" id="Pages" name="Pages">
+                        <label for="Read">Read:</label>
+                        <select id="Read", name="Read">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </form>
+                    <button type="submit" class="submit-btn">Submit to Library</button>
+                    <button type="reset" class="reset-btn">Reset Form</button>
                 </div>
             </div>
             <div class="books">

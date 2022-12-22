@@ -2,16 +2,11 @@
 let myLibrary = []; 
 
 // dfk for what i needed it
-class Book {
-  constructor(Title, Author, Pages, Read) {
+function Book(Title, Author, Pages, Read) {
   this.Title = Title;
   this.Author = Author;
   this.Pages = Pages;
   this.Read = Read;
-  /*this.info = function() {
-    return (title + " ," + author + " ," + pages + " ," + "Have read yet: " + isRead)
-  } */
-}
 }
 
 function addBookToLibrary(Title, Author, Pages, Read) {
@@ -42,7 +37,6 @@ function displayLibrary() {
         console.log("show me current array object inside foreach....", myLibrary);
 
         removeBookButton.dataset.linkedArray = index;
-        index++;
         console.log("show me dataset", removeBookButton.dataset.linkedArray);
         card.appendChild(removeBookButton);
 
@@ -51,11 +45,38 @@ function displayLibrary() {
         function removeBookFromLibrary () {
           let retriveBookToRemove = removeBookButton.dataset.linkedArray;
           console.log("attemp", parseInt(retriveBookToRemove));
-          console.log( myLibrary);
           myLibrary.splice(parseInt(retriveBookToRemove), 1);
           card.remove();
           displayLibrary();
         }
+
+        //create read status button and add class attribute for each array card 
+        const readStatusButton = document.createElement("button");
+        readStatusButton.classList.add("read-status-button");
+        readStatusButton.textContent = "Toggle Read Status";
+
+        //link the data attribute of the toggle read button to the array and card 
+        readStatusButton.dataset.linkedArray = index;
+        card.appendChild(readStatusButton);
+
+        readStatusButton.addEventListener("click", toggleReadStatus);
+
+        function toggleReadStatus() {
+          let retriveBookToToggle = readStatusButton.dataset.linkedArray;
+          Book.prototype = Object.create(Book.prototype);
+          const toggleBook = new Book();  
+
+          if(myLibrary[parseInt(retriveBookToToggle)].Read == "Yes") {
+            toggleBook.Read = "No"
+            myLibrary[parseInt(retriveBookToToggle)].Read = toggleBook.Read
+          } else if (myLibrary[parseInt(retriveBookToToggle)].Read == "No") {
+            toggleBook.Read = "Yes";
+            myLibrary[parseInt(retriveBookToToggle)].Read = toggleBook.Read;
+          }
+          displayLibrary();
+        }
+
+      
 
     for(let key in myLibrarys) {
       console.log(`${key}: ${myLibrarys[key]}`);
@@ -63,14 +84,13 @@ function displayLibrary() {
       para.textContent = (`${key}: ${myLibrarys[key]}`);
       card.appendChild(para);
       }
-  })
 
 
+  index++;
+  });
 }
 
-
   displayLibrary();
-
 
   // Start Event listener/display form to add  new book to library 
   const addBookButton = document.querySelector(".add-book-btn")
